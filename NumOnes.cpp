@@ -11,15 +11,15 @@
  * Credits: unknown
  *
  * Idea:
- *   1) Focus exactly one decimal position, calculates the
+ *   1) Focus exactly one decimal position, calculate the
  *      number of ones.
  *   2) Run out from lowest to highest position, add them
  *      together, it's the answer.
  *
  *  Imaging the numbers from 1 to n sits in a line in
  *  front of you. Now you're required to calculates all
- *  the ones in the sequence. A basic way is that, I 
- *  each time focus on the same digit pos, and count all
+ *  the ones in the sequence. A basic way is that, each
+ *  time I focus on the same digit pos, and count all
  *  ones in that pos. Next time I focus on another pos.
  *  And I sum them all together, finally got the answer.
  *
@@ -78,9 +78,11 @@ public:
         int ones = 0;
         for (long long m = 1; m <= n; m *= 10) {
             ones +=
-                // this covers case 1 & 3
-                // since (a+8)/10 = (a+1)/10 if a%10 >= 2
-                // (a+8)/10 = a/10 if a%10 == 0
+                /*
+                 * this covers case 1 & 3
+                 * since (a+8)/10 = a/10 + 1 if a%10 >= 2
+                 * (a+8)/10 = a/10 if a%10 == 0
+                 */
                 (n/m + 8) / 10 * m
                 +
                 // case 2
