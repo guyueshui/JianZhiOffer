@@ -26,7 +26,7 @@ public:
 
     int pop() {
         while (q1.size() != 1) {
-            q1.push(q1.front());
+            q2.push(q1.front());
             q1.pop();
         }
         int res = q1.front();
